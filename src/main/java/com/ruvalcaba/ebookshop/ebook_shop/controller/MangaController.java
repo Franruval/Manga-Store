@@ -44,31 +44,20 @@ public class MangaController {
         return new ModelAndView("listOfMangas", "manga", list);
     }
 
-    @GetMapping("/my-mangas")
-    public String getMyMangas(Model model){
-        List<MyMangas> list = myMangasService.getAllMyMangas();
-        model.addAttribute("manga", list);
-
-        return "myMangas";
-    }
-
     @PostMapping("/save-manga")
     public String addManga(@ModelAttribute Manga m){
         mangaService.save(m);
         return "redirect:/all-mangas";
     }
 
-    @RequestMapping("/my-mangas/add/{id}")
-    public String addToMyMangas(@PathVariable("id") Long id){
-        Manga manga=mangaService.getMangaById(id);
-        MyMangas myMangas = new MyMangas(manga.getId(),manga.getTitle(),manga.getPublisher(),manga.getVolume(),manga.getPrice());
-        myMangasService.saveMyMangas(myMangas);
-        return "redirect:/my-mangas";
+    @RequestMapping("/all-mangas/delete/{id}")
+    public String deleteManga(@PathVariable("id") Long id){
+        return "home";
     }
 
-    @RequestMapping("/my-mangas/delete/{id}")
-    public String deleteFromMyMangas(@PathVariable("id") Long id){
-        myMangasService.deleteById(id);
-        return "redirect:/my-mangas";
+    @RequestMapping("/all-mangas/edit/{id}")
+    public String updateManga(@PathVariable("id") Long id){
+        return "home";
     }
+
 }
