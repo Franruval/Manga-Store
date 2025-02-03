@@ -8,21 +8,80 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>eBook Shop</title>
+    <!-- Google Font (Roboto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <title>My Manga Store</title>
+
+    <style>
+        /* Custom Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            border-bottom: 2px solid #ddd;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+        }
+
+        .container {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-top: 3rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">Manga Store</a>
+        <a class="navbar-brand text-white" href="/">My Manga Store</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/all-mangas">All Mangas</a>
                 </li>
@@ -37,27 +96,26 @@
     </div>
 </nav>
 
-<div class="container my-5 p-5">
-    <h2 class="text-center text-dark mb-4" style="font-family: 'Arial', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Register New Manga</h2>
-    <form class="col-md-4 offset-md-4" th:action="@{/save-manga}" method="post">
-        <div>
+<div class="container">
+    <h2>Register New Manga</h2>
+    <form class="col-md-12" th:action="@{/save-manga}" method="post">
+        <div class="form-group">
             <label for="title" class="form-label">Title:</label>
-            <input type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title" placeholder="Enter manga title" required>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
             <label for="publisher" class="form-label">Publisher:</label>
-            <input type="text" class="form-control" name="publisher">
+            <input type="text" class="form-control" name="publisher" placeholder="Enter publisher name" required>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
             <label for="volume" class="form-label">Volume:</label>
-            <input type="text" class="form-control" name="volume">
+            <input type="text" class="form-control" name="volume" placeholder="Enter volume number" required>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
             <label for="price" class="form-label">Price:</label>
-            <input type="text" class="form-control" name="price">
+            <input type="text" class="form-control" name="price" placeholder="Enter price" required>
         </div>
-
-        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 
