@@ -1,4 +1,4 @@
-My Manga Store is a Spring Boot project that utilizes spring data JPA with mysql in order to manage a database of mangas and perform CRUD operations, such as add, edit or delete a manga from the database.
+My Manga Store is a Spring Boot project that utilizes thymeleaf and spring data JPA with mysql in order to manage a database of mangas and perform CRUD operations, such as add, edit or delete a manga from the database.
 You can also add an existing manga from the store to your collection and remove it if needed.
 
 
