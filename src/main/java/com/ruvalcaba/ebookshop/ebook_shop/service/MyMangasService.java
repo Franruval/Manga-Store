@@ -9,9 +9,9 @@ import java.util.List;
 @Service
 public class MyMangasService {
 
-    private MyMangasRepository myMangasRepository;
+    private final MyMangasRepository myMangasRepository;
 
-    MyMangasService(MyMangasRepository myMangasRepository){
+    public MyMangasService(MyMangasRepository myMangasRepository){
         this.myMangasRepository = myMangasRepository;
     }
 
@@ -24,6 +24,9 @@ public class MyMangasService {
     }
 
     public void deleteById(Long id) {
+        if (!myMangasRepository.existsById(id)) {
+            throw new RuntimeException("Manga not found with id: " + id);
+        }
         myMangasRepository.deleteById(id);
     }
 }

@@ -5,19 +5,19 @@ import com.ruvalcaba.ebookshop.ebook_shop.repository.MangaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MangaService {
 
-    private MangaRepository mangaRepository;
+    private final MangaRepository mangaRepository;
 
-    // Dependency injection
     public MangaService(MangaRepository mangaRepository){
         this.mangaRepository = mangaRepository;
     }
 
     public List<Manga> getAllMangas(){
-       return mangaRepository.findAll();
+        return mangaRepository.findAll();
     }
 
     public void save(Manga m){
@@ -25,6 +25,11 @@ public class MangaService {
     }
 
     public Manga getMangaById(Long id){
-        return mangaRepository.findById(id).get();
+        return mangaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Manga not found with id: " + id));
+    }
+
+    public void deleteManga(Long id) {
+        mangaRepository.deleteById(id);
     }
 }

@@ -2,7 +2,6 @@ package com.ruvalcaba.ebookshop.ebook_shop.controller;
 
 
 import com.ruvalcaba.ebookshop.ebook_shop.entity.Manga;
-import com.ruvalcaba.ebookshop.ebook_shop.entity.MyMangas;
 import com.ruvalcaba.ebookshop.ebook_shop.service.MangaService;
 import com.ruvalcaba.ebookshop.ebook_shop.service.MyMangasService;
 import org.springframework.stereotype.Controller;
@@ -52,12 +51,15 @@ public class MangaController {
 
     @RequestMapping("/all-mangas/delete/{id}")
     public String deleteManga(@PathVariable("id") Long id){
-        return "home";
+        mangaService.deleteManga(id);
+        return "redirect:/all-mangas";
     }
 
     @RequestMapping("/all-mangas/edit/{id}")
-    public String updateManga(@PathVariable("id") Long id){
-        return "home";
+    public String updateManga(@PathVariable("id") Long id, Model model){
+        Manga m = mangaService.getMangaById(id);
+        model.addAttribute("manga", m);
+        return "mangaEdit";
     }
 
 }
