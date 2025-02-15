@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ruvalcaba.mangastore</groupId>
-	<artifactId>manga-store</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>MyMangaStore</artifactId>
+	<version>0.0.1</version>
 	<name>manga-store</name>
 	<description>Rest API for an online manga store</description>
 	<url/>
