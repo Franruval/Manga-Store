@@ -1,0 +1,9 @@
+com\ruvalcaba\ebookshop\ebook_shop\service\MangaService.class
+com\ruvalcaba\ebookshop\ebook_shop\controller\MyMangasController.class
+com\ruvalcaba\ebookshop\ebook_shop\repository\MangaRepository.class
+com\ruvalcaba\ebookshop\ebook_shop\repository\MyMangasRepository.class
+com\ruvalcaba\ebookshop\ebook_shop\entity\MyMangas.class
+com\ruvalcaba\ebookshop\ebook_shop\service\MyMangasService.class
+com\ruvalcaba\ebookshop\ebook_shop\controller\MangaController.class
+com\ruvalcaba\ebookshop\ebook_shop\MangaStoreApplication.class
+com\ruvalcaba\ebookshop\ebook_shop\entity\Manga.class
